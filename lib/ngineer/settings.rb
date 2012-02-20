@@ -1,4 +1,4 @@
-require 'yaml'
+# Helper class for managing settings.
 
 module Ngineer
 

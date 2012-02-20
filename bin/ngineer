@@ -19,7 +19,7 @@ command :list do |c|
     Ngineer::Commands.new(STDOUT).list(args, options)
   end
 end
- 
+
 command :link do |c|
   c.syntax = 'ngineer setup [options]'
   c.summary = ''

@@ -1,11 +1,13 @@
+# Helper class for processing commands.
+
 module Ngineer
 
   class Commands
-  
+
     def initialize(output)
       @output = output
     end
-  
+
     def list(args = nil, options = nil)
       config = YAML::load(Ngineer::Storage::config)
 
@@ -16,10 +18,10 @@ module Ngineer
         end
       end
     end
-  
+
     def link(args = nil, options = nil)
     end
-  
+
   private
 
     def colorize(text, color, set = "\e[0m")
@@ -36,7 +38,7 @@ module Ngineer
 
       "#{color}#{text}#{set}"
     end
-  
+
   end
-  
+
 end
