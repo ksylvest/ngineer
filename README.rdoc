@@ -1,0 +1,25 @@
+= Ngineer
+
+Ngineer is a configuration and management tool for Rack applications using Nginx and Foreman.
+
+== Requirements
+
+The gem is tested with:
+
+* Ruby (MRI) 1.9.3 (p125)
+* Ruby (MRI) 1.9.2 (p290)
+* Ruby (MRI) 1.8.7 (p352)
+* JRuby 1.6.5
+* Rubinius 1.2.4
+
+== Installation
+
+  gem install ngineer
+
+== Status
+
+{<img src="http://travis-ci.org/ksylvest/ngineer.png" />}[http://travis-ci.org/ksylvest/ngineer]
+  
+== Copyright
+
+Copyright (c) 2010 - 2012 Kevin Sylvestre. See LICENSE for details.
