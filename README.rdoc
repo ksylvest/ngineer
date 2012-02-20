@@ -4,6 +4,8 @@ Ngineer is a configuration and management tool for Rack applications using Nginx
 
 == Requirements
 
+https://github.com/mxcl/homebrew/wiki/installation
+
 The gem is tested with:
 
 * Ruby (MRI) 1.9.3 (p125)
@@ -12,9 +14,24 @@ The gem is tested with:
 * JRuby 1.6.5
 * Rubinius 1.2.4
 
+== Required
+
+  brew install nginx
+
+== Optional
+
+  brew install solr redis memcached imagemagick couchdb mongodb cassandra mysql postgres
+
 == Installation
 
   gem install ngineer
+  ngineer initialize
+
+== Usage
+
+  cd ~/Sites/cookie.monster
+  ngineer link --as cookie.monster
+  open https://cookie.monster/
 
 == Status
 
