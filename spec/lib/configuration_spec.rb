@@ -1,19 +1,11 @@
 require 'spec_helper'
 
-describe Ngineer::Settings do
+describe Ngineer::Configuration do
 
-  let (:settings) { Ngineer::Settings.new }
-  let (:config) { nil }
+  let (:path) { Ngineer::Configuration::PATH }
+  let (:settings) { Ngineer::Configuration.new }
+  let (:config) { Ngineer::Output.new }
   let (:nginx) { Ngineer::Output.new }
-
-
-  describe "PATH" do
-    it "should be an absolute path" do
-      path = Ngineer::Settings::PATH
-      path.should be_an_instance_of String
-      path.should_not match '~'
-    end
-  end
 
   describe "#flush!" do
     it "should flush settings" do
@@ -31,12 +23,6 @@ describe Ngineer::Settings do
 
       config.output.should_not be_empty
       nginx.output.should_not be_empty
-    end
-  end
-
-  describe "#reset!" do
-    it "should reset settings" do
-      settings.reset!
     end
   end
 

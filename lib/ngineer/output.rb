@@ -1,5 +1,3 @@
-# Helper class for processing output.
-
 module Ngineer
 
   class Output

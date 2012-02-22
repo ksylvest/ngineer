@@ -1,5 +1,3 @@
-# Helper class for processing commands.
-
 module Ngineer
 
   class Commands
@@ -7,9 +5,16 @@ module Ngineer
     def initialize(output)
       @output = output
     end
+    
+    def configuration
+      @configuration ||= Ngineer::Configuration.new
+    end
+    
+    def init(args = nil, options = nil)
+    end
 
     def list(args = nil, options = nil)
-      config = YAML::load(Ngineer::Storage::config)
+      config = YAML::load(Ngineer::Configuration::settings)
 
       if config and config[:applications]
         config[:applications].each do |application|
@@ -20,9 +25,13 @@ module Ngineer
     end
 
     def link(args = nil, options = nil)
+      configuration.add(Identifier.generate, "localhost", 8000)
+    end
+    
+    def nuke(args = nil, options = nil)
     end
 
-  private
+  protected
 
     def colorize(text, color, set = "\e[0m")
       color = case color

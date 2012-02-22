@@ -7,27 +7,55 @@ require 'ngineer'
 require 'ngineer/version'
 
 program :version, Ngineer::VERSION
-program :description, 'configuration and management of rack applications'
+program :description, 'Configuration and management of Rack applications using Nginx and Foreman.'
+
+command :init do |c|
+  c.syntax = 'ngineer init [options]'
+  c.summary = 'Initialize configuration.'
+  c.description = 'Initialize configuration.'
+  c.example 'description', 'command example'
+  c.option '--verbose', 'Verbose'
+  c.action do |args, options|
+    puts "args: #{args.last}"
+    puts "options: #{options}"
+    Ngineer::init(args, options)
+  end
+end
 
 command :list do |c|
   c.syntax = 'ngineer list [options]'
-  c.summary = ''
-  c.description = ''
-  c.example 'description', 'command example'
-  c.option '--verbose', 'Verbose listing'
+  c.summary = 'List all applications.'
+  c.description = 'List all applications.'
+  c.example 'description', 'ngineer list'
   c.action do |args, options|
-    Ngineer::Commands.new(STDOUT).list(args, options)
+    puts "args: #{args.last}"
+    puts "options: #{options}"
+    Ngineer::list(args, options)
   end
 end
 
 command :link do |c|
-  c.syntax = 'ngineer setup [options]'
-  c.summary = ''
-  c.description = ''
+  c.syntax = 'ngineer link [options]'
+  c.summary = 'Link an application.'
+  c.description = 'Link an application.'
   c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
+  c.option '--directory DIRECTORY', String, 'Optional custom directory. Default current directory.'
   c.action do |args, options|
-    Ngineer::Comands.new(STDOUT).link(args, options)
+    puts "args: #{args.last}"
+    puts "options: #{options}"
+    Ngineer::link(args, options)
   end
 end
 
+command :nuke do |c|
+  c.syntax = 'ngineer nuke [options]'
+  c.summary = 'Nuke an application.'
+  c.description = 'Nuke an application.'
+  c.example 'description', 'command example'
+  c.option '--directory DIRECTORY', String, 'Directory'
+  c.action do |args, options|
+    puts "args: #{args.last}"
+    puts "options: #{options}"
+    Ngineer::link(args, options)
+  end
+end
