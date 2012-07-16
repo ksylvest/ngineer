@@ -5,8 +5,12 @@ module Ngineer
     PATH = File.expand_path "~/.ngineer"
 
     attr_accessor :settings
+    
+    def self.shared
+      @@configuration ||= Ngineer::Configuration.new
+    end
 
-    def initialize(settings = {})
+    def initialize
       self.settings = YAML::load(self.settings)
       self.settings[:applications] ||= []
     end
