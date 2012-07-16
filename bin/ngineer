@@ -6,6 +6,7 @@ require 'commander/import'
 require 'ngineer'
 require 'ngineer/version'
 
+program :name, 'Ngineer'
 program :version, Ngineer::VERSION
 program :description, 'Configuration and management of Rack applications using Nginx and Foreman.'
 

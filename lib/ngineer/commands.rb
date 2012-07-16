@@ -6,15 +6,11 @@ module Ngineer
       @output = output
     end
     
-    def configuration
-      @configuration ||= Ngineer::Configuration.new
-    end
-    
     def init(args = nil, options = nil)
     end
 
     def list(args = nil, options = nil)
-      config = YAML::load(Ngineer::Configuration::settings)
+      Ngineeer::Configuration.shared.settings
 
       if config and config[:applications]
         config[:applications].each do |application|
@@ -25,7 +21,7 @@ module Ngineer
     end
 
     def link(args = nil, options = nil)
-      configuration.add(Identifier.generate, "localhost", 8000)
+      Ngineeer::Configuration.shared.add(Identifier.generate, "localhost", 8000)
     end
     
     def nuke(args = nil, options = nil)
